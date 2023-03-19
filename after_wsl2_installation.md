@@ -43,7 +43,7 @@ sudo apt update
 sudo apt install build-essential
 ```
 
-## Fortraコンパイラのインストール
+## Fortranコンパイラのインストール
 - gfortran（Fortran 95コンパイラ）のインストール（Fortranでプログラムを組まない人はインストールしなくてもよい）
 
 ```
@@ -62,7 +62,7 @@ sudo apt install grads
 - GMTのインストール（GMTが何かわからない人はインストールする必要なし）
 ```
 sudo apt update
-sudo atp install gmt
+sudo apt install gmt
 ```
 
 ## 統計解析ソフトウエアのインストール
