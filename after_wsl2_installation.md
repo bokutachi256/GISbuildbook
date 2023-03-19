@@ -11,6 +11,7 @@ WSL2のUbuntuからWindowsのマイドキュメントフォルダへは
 
 1. スタートメニューからUbuntuを起動する．
 1.  WindowsホームディレクトリのシンボリックリンクをUbuntuに張る（ユーザ名の部分は自分のWindowsユーザー名に置き換えること）．
+   
 ```
 ln -s /mnt/c/Users/ユーザ名/Documents/ Documents
 ln -s /mnt/c/Users/ユーザ名/Downloads/ Downloads
@@ -85,14 +86,14 @@ sudo apt install gfortran
 GrADSとGMTをインストールします．
 GrADSやGMTが何かわからない人はインストールする必要はありません．
 
-- GrADSのインストール
-- 
+GrADSをインストールします．
+
 ```
 sudo apt update
 sudo apt install grads
 ```
 
-GMTのインストール
+GMTをインストールします．
 
 ```
 sudo apt update
@@ -123,23 +124,24 @@ Ubuntuのリポジトリにあるものもそれほど古いものではあり�
 sudo apt install r-base
 ```
 
-
 - Rstudio Serverのインストール
 
-``
+`
+sss
+`
 
-
-
-
-## pythonのインストール
+## Pythonのインストール
 
 - Pythonのインストール（Ubuntu上で動くJupyter Labをインストールし，WindowsのWebブラウザからアクセスできるようにする）
 
 ### pyenvのインストール
+
 ```
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 ```
+
 - .bashrcにpyenvの設定を書き込む
+
 ```
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
@@ -148,6 +150,7 @@ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 
 
 - .profileにpyenvの設定を書き込む
+
 ```
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
@@ -155,15 +158,21 @@ echo 'eval "$(pyenv init -)"' >> ~/.profile
 ```
 
 - ターミナルを再起動する
+
 ```
 exit
 ```
+
 - スタートメニューからUbuntuを起動する
+
 - pyenv updateのインストール
+
 ```
 git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
 ```
+
 ### pyenvでpythonをインストールする
+
 - pyenv上でインストール可能なパッケージの一覧を取得する
 
 ```
