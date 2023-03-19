@@ -1,30 +1,56 @@
-# ホームディレクトリのマウントなど
+# WSL2でインストールしたUbuntuの基本設定
 
-- スタートメニューからUbuntuを起動する．
-- WindowsホームディレクトリのシンボリックリンクをUbuntuに張る（ユーザ名の部分は自分のWindowsユーザー名に置き換えること）．
+## WindowsのマイドキュメントフォルダをWSL2のホームディレクトにマウントする
+
+WSL2のUbuntuからWindowsのマイドキュメントフォルダへは
+`/mnt/c/Users/ユーザ名/Documents`からアクセスできますが，
+簡単にアクセスするためにWindowsのマイドキュメントフォルダの
+シンボリックリンクをUbuntuのホームディレクトリ以下に張ります．
+
+手順は以下になります．
+
+1. スタートメニューからUbuntuを起動する．
+1.  WindowsホームディレクトリのシンボリックリンクをUbuntuに張る（ユーザ名の部分は自分のWindowsユーザー名に置き換えること）．
 ```
 ln -s /mnt/c/Users/ユーザ名/Documents/ Documents
 ln -s /mnt/c/Users/ユーザ名/Downloads/ Downloads
 ```
 
-- インストール済みパッケージのアップデート（週に1回程度はアップデートをした方がよい．初回アップデートは時間がかかるかも）
+これでUbuntuの`~/Documents`がWindowsのマイドキュメントフォルダが，`~/Download`がWindowsのダウンロードフォルダに紐付けられます．
+
+## インストール済みパッケージのアップデート
+
+WSL2にインストールしたUbuntuのシステムをアップデートします．
+これはaptコマンドでインストールしたアプリケーションのアップデートになります．セキュリティ対策のためにも週に1回程度はアップデートをした方がよいでしょう．初回のアップデートには時間がかかることがあります．
+
 ```
 sudo apt update && sudo apt upgrade -y
 ```
 
 ## 日本語入力システムのインストール
-- 最低限の日本語フォントをインストールする
+
+コンソールでの日本語表示はできますが，UbuntuのGUIソフトウエアでの日本語表示と日本語入力のための設定を行います．
+まずは必要最低限の日本語フォントをUbuntuにインストールします．
+
+フリーのtakaoフォントとRictyフォントをインストールします．
+
 ```
+sudo apt install fonts-takao
 sudo apt install fonts-ricty-diminished
 ```
-- mozc（日本語変換プログラム）のインストール
+
+日本語変換プログラムmozcをインストールします．
+GUIソフトウエアでの日本語入力に必要です．
+
 ```
 sudo apt install fcitx-mozc
 fcitx
 im-config -n fcitx
 fcitx-config-gtk3
 ```
-- .bashrcにfcitx周りの設定を書き込む
+
+日本語入力システムの起動設定を行います．
+
 ```
 cat 'export GTK_IM_MODULE=fcitx' >> ~/.bashrc
 cat 'export QT_IM_MODULE=fcitx' >> ~/.bashrc
@@ -36,41 +62,74 @@ cat 'fcitx-autostart > /dev/null 2>&1' >> ~/.bashrc
 # 研究用アプリケーションのインストール
 
 ## Cコンパイラのインストール
-- gccなどの開発環境をインストールする（C言語でプログラムを組まない人はインストールしなくてもよい）．
-```
 
+gccなどのC言語開発をインストールします．
+Cプログラムのコンパイルをしない方はインストールする必要はありません．
+
+```
 sudo apt update
 sudo apt install build-essential
 ```
 
 ## Fortranコンパイラのインストール
-- gfortran（Fortran 95コンパイラ）のインストール（Fortranでプログラムを組まない人はインストールしなくてもよい）
+
+Fortran95コンパイラ（gfortran）をインストールします．
+Fortranプログラムのコンパイルをしない方はインストールする必要はありません．
 
 ```
 sudo apt update
 sudo apt install gfortran
 ```
 
-## 図化ソフトウエアのインストール
-- GrADSのインストール（GrADSが何かわからない人はインストールする必要なし）
+## 地図ソフトウエアのインストール
+GrADSとGMTをインストールします．
+GrADSやGMTが何かわからない人はインストールする必要はありません．
 
+- GrADSのインストール
+- 
 ```
 sudo apt update
 sudo apt install grads
 ```
 
-- GMTのインストール（GMTが何かわからない人はインストールする必要なし）
+GMTのインストール
+
 ```
 sudo apt update
 sudo apt install gmt
 ```
 
-## 統計解析ソフトウエアのインストール
-- Rのインストール
+## 統計解析ソフトウエアRのインストール
+
+R本体とRStudio Serverをインストールします．
+これにより，WSL2上で動くRStudioにWindowsのWebブラウザでアクセスできます．
+
+RStudioは非常に便利なRのフロントエンドですが，
+Windows上でRtoRStudioを動かすのは文字コードやライブラリのインストールなどで実行が難しくなることがあります．
+
+Ubuntu上でRとRStudioサーバーを動かしてWindowsのWebブラウザからアクセスるることにより，上記の問題を解決しやすくなります．
+
+- R本体のインストール
+
+公式HPのインストール手順は以下になります．
+
+[http://cran.rstudio.com/bin/linux/ubuntu/](http://cran.rstudio.com/bin/linux/ubuntu/)
+
+公式HPのの手順では最新版のRをインストールできますが，
+Ubuntuのリポジトリにあるものもそれほど古いものではありません．
+ここではUbuntuリポジトリからのインストールを紹介します．
 
 ```
 sudo apt install r-base
 ```
+
+
+- Rstudio Serverのインストール
+
+``
+
+
+
 
 ## pythonのインストール
 
