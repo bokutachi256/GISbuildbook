@@ -149,12 +149,18 @@ sudo wget -O /etc/apt/keyrings/qgis-archive-keyring.gpg https://download.qgis.or
 ```
 
 QGISリポジトリを追加します．
-テキストエディタ`nano`でリポジトリ情報のファイルを開きます．
+
 ```
-sudo nano /etc/apt/sources.list.d/qgis.sources
+sudo echo 'Types: deb deb-src' >> /etc/apt/sources.list.d/qgis.sources
+sudo echo 'URIs: https://qgis.org/debian' >> /etc/apt/sources.list.d/qgis.sources
+sudo echo 'Suites: jammy' >> /etc/apt/sources.list.d/qgis.sources
+sudo echo 'Architectures: amd64' >> /etc/apt/sources.list.d/qgis.sources
+sudo echo 'Components: main' >> /etc/apt/sources.list.d/qgis.sources
+sudo echo 'Signed-By: /etc/apt/keyrings/qgis-archive-keyring.gpg' >> /etc/apt/sources.list.d/qgis.sources
 ```
 
-開いたファイルに以下の内容を貼り付けて保存します．
+もしくはテキストエディタ`nano`などで`/etc/apt/sources.list.d/qgis.sources`を開き，
+以下の内容を貼り付けても構いません．
 
 ```
 Types: deb deb-src
