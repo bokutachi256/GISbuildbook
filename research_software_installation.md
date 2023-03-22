@@ -7,6 +7,7 @@ gccなどのC言語開発をインストールします．
 Cプログラムのコンパイルをしない方はインストールする必要はありません．
 
 ```
+# Ubuntu版
 sudo apt update
 sudo apt install build-essential
 ```
@@ -17,6 +18,7 @@ Fortran95コンパイラ（gfortran）をインストールします．
 Fortranプログラムのコンパイルをしない方はインストールする必要はありません．
 
 ```
+# Ubuntu版
 sudo apt update
 sudo apt install gfortran
 ```
@@ -28,6 +30,7 @@ GrADSやGMTが何かわからない人はインストールする必要はあり
 GrADSをインストールします．
 
 ```
+# Ubuntu版
 sudo apt update
 sudo apt install grads
 ```
@@ -35,6 +38,7 @@ sudo apt install grads
 GMTをインストールします．
 
 ```
+# Ubuntu版
 sudo apt update
 sudo apt install gmt
 ```
@@ -60,6 +64,7 @@ Ubuntuのリポジトリにあるものもそれほど古いものではあり�
 ここではUbuntuリポジトリからのインストールを紹介します．
 
 ```
+# Ubuntu版
 sudo apt install r-base
 ```
 
@@ -67,6 +72,7 @@ Rstudio Serverをインストールいます．
 こちらは公式HPの手順に基づいています．
 
 ```
+# Ubuntu版
 wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.03.0-386-amd64.deb
 sudo apt install ./rstudio-server-2023.03.0-386-amd64.deb
 ```
@@ -78,18 +84,21 @@ sudo apt install ./rstudio-server-2023.03.0-386-amd64.deb
 必要なパッケージをインストールします．
 
 ```
+# Ubuntu版
 sudo apt install gnupg software-properties-common
 ```
 
 署名キーをインストールします．
 
 ```
+# Ubuntu版
 sudo wget -O /etc/apt/keyrings/qgis-archive-keyring.gpg https://download.qgis.org/downloads/qgis-archive-keyring.gpg
 ```
 
 QGISリポジトリを追加します．
 
 ```
+# Ubuntu版
 sudo echo 'Types: deb deb-src' >> /etc/apt/sources.list.d/qgis.sources
 sudo echo 'URIs: https://qgis.org/debian' >> /etc/apt/sources.list.d/qgis.sources
 sudo echo 'Suites: jammy' >> /etc/apt/sources.list.d/qgis.sources
@@ -112,24 +121,28 @@ Signed-By: /etc/apt/keyrings/qgis-archive-keyring.gpg
 
 リポジトリ情報をアップデートします．
 ```
+# Ubuntu版
 sudo apt update
 ```
 
 QGISをインストールします．
 
 ```
+# Ubuntu版
 sudo apt install qgis
 ```
 
 SAGAもインストールします．
 
 ```
+# Ubuntu版
 sudo apt install saga
 ```
 
 確認のためQGISを起動します．
 
 ```
+# Ubuntu版
 qgis &
 ```
 
