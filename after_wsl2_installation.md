@@ -53,11 +53,11 @@ fcitx-config-gtk3
 日本語入力システムの起動設定を行います．
 
 ```
-cat 'export GTK_IM_MODULE=fcitx' >> ~/.bashrc
-cat 'export QT_IM_MODULE=fcitx' >> ~/.bashrc
-cat 'export XMODIFIERS="@im=fcitx"' >> ~/.bashrc
-cat 'export DefaultIMModule=fcitx' >> ~/.bashrc
-cat 'fcitx-autostart > /dev/null 2>&1' >> ~/.bashrc
+echo 'export GTK_IM_MODULE=fcitx' >> ~/.bashrc
+echo 'export QT_IM_MODULE=fcitx' >> ~/.bashrc
+echo 'export XMODIFIERS="@im=fcitx"' >> ~/.bashrc
+echo 'export DefaultIMModule=fcitx' >> ~/.bashrc
+echo 'fcitx-autostart > /dev/null 2>&1' >> ~/.bashrc
 ```
 
 # 研究用アプリケーションのインストール
@@ -188,10 +188,10 @@ SAGAもインストールします．
 sudo apt install saga
 ```
 
-QGISを起動します．
+確認のためQGISを起動します．
 
 ```
-qgis&
+qgis &
 ```
 
 Pluginメニューから`Processing SAGA NextGen Provider`をインストールします．
