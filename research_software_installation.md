@@ -3,8 +3,13 @@
 
 ## Cコンパイラのインストール
 
-gccなどのC言語開発をインストールします．
+gccなどのC言語開発環境をインストールします．
 Cプログラムのコンパイルをしない方はインストールする必要はありません．
+
+Ubuntuの場合はgccを含む開発ツールをインストールする必要がありますが，
+Homebrewはすでにコマンドラインツールとxcodeがインストールされているので，
+すぐにCコンパイラ（gccやclangなど）が使えます．
+ただし，Macでgfortranを使う際にはHomebrewでgccをインストールする必要があります．
 
 ```
 # Ubuntu版
@@ -12,10 +17,17 @@ sudo apt update
 sudo apt install build-essential
 ```
 
+```
+# Homebrew版
+brew update
+brew install gcc
+```
+
 ## Fortranコンパイラのインストール
 
 Fortran95コンパイラ（gfortran）をインストールします．
 Fortranプログラムのコンパイルをしない方はインストールする必要はありません．
+Homebrewはgccにgfortranが含まれているので，上記のCコンパイラのインストールを行えばgfortranもインストールされます．
 
 ```
 # Ubuntu版
@@ -23,7 +35,7 @@ sudo apt update
 sudo apt install gfortran
 ```
 
-## 地図ソフトウエアのインストール
+## GrADSとGMTのインストール
 GrADSとGMTをインストールします．
 GrADSやGMTが何かわからない人はインストールする必要はありません．
 
@@ -35,6 +47,12 @@ sudo apt update
 sudo apt install grads
 ```
 
+```
+# Homebrew版
+brew update
+brew install grads
+```
+
 GMTをインストールします．
 
 ```
@@ -43,33 +61,59 @@ sudo apt update
 sudo apt install gmt
 ```
 
+```
+# Homebrew版
+brew update
+brew install gmt
+```
+
 ## 統計解析ソフトウエアRのインストール
 
-R本体とRStudio Serverをインストールします．
-これにより，WSL2上で動くRStudioにWindowsのWebブラウザでアクセスできます．
+R本体とRStudioをインストールします．
 
-RStudioは非常に便利なRのフロントエンドですが，
-Windows上でRtoRStudioを動かすのは文字コードやライブラリのインストールなどで実行が難しくなることがあります．
 
-Ubuntu上でRとRStudioサーバーを動かしてWindowsのWebブラウザからアクセスるることにより，上記の問題を解決しやすくなります．
+### Rのインストール
 
-- R本体のインストール
+#### Ubuntu版のインストール
 
 公式HPのインストール手順は以下になります．
 
 [http://cran.rstudio.com/bin/linux/ubuntu/](http://cran.rstudio.com/bin/linux/ubuntu/)
 
-公式HPのの手順では最新版のRをインストールできますが，
+公式HPの手順では最新版のRをインストールできますが，
 Ubuntuのリポジトリにあるものもそれほど古いものではありません．
 ここではUbuntuリポジトリからのインストールを紹介します．
 
 ```
 # Ubuntu版
+sudo apt update
 sudo apt install r-base
 ```
 
-Rstudio Serverをインストールいます．
-こちらは公式HPの手順に基づいています．
+#### Mac版のインストール
+
+公式HPの手順は[http://cran.rstudio.com/bin/macosx/](http://cran.rstudio.com/bin/macosx/)になりますが，
+Homebrewでインストールした方がアップデートなどの管理がしやすくなります．
+ここではHomebrewからのインストールを紹介します．
+
+```
+# Homebrew版
+brew update
+brew install --cask r
+```
+
+パスワードの入力を求められたらログインパスワードを入力してください．
+
+### RStudioのインストール
+#### Ubuntu版のインストール
+
+RStudioは非常に便利なRのフロントエンドですが，
+Windows上でRとRStudioを動かすのは文字コードやライブラリのインストールなどで実行が難しくなることがあります．
+
+Ubuntu上でRとRStudioサーバーを動かしてWindowsのWebブラウザからアクセスすることにより，上記の問題を解決しやすくなります．
+
+UbuntuにRstudio Serverをインストールします．
+こちらは公式HPの手順（[https://posit.co/download/rstudio-server/](https://posit.co/download/rstudio-server/)）に基づいています．
 
 ```
 # Ubuntu版
@@ -77,11 +121,24 @@ wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.03.0-3
 sudo apt install ./rstudio-server-2023.03.0-386-amd64.deb
 ```
 
-### QGISのインストール
 
-こちらも公式HPの手順になります．
+#### Homebrew版のインストール
 
-必要なパッケージをインストールします．
+Homebrewのリポジトリからインストールできます．
+
+```
+# Homebrew版
+brew update
+brew install rstudio
+```
+
+
+## QGISのインストール
+### Ubuntu版のインストール
+
+公式HP（[https://qgis.org/ja/site/forusers/alldownloads.html#debian-ubuntu](https://qgis.org/ja/site/forusers/alldownloads.html#debian-ubuntu)）の要約です．
+
+まず必要なパッケージをインストールします．
 
 ```
 # Ubuntu版
@@ -108,7 +165,7 @@ sudo echo 'Signed-By: /etc/apt/keyrings/qgis-archive-keyring.gpg' >> /etc/apt/so
 ```
 
 もしくはテキストエディタ`nano`などで`/etc/apt/sources.list.d/qgis.sources`を開き，
-以下の内容を貼り付けても構いません．
+以下の内容を貼り付けて保存しても構いません．
 
 ```
 Types: deb deb-src
@@ -144,6 +201,19 @@ sudo apt install saga
 ```
 # Ubuntu版
 qgis &
+```
+
+Pluginメニューから`Processing SAGA NextGen Provider`をインストールします．
+これでQGISのプロセッシングメニューでSAGAが使えるようになります．
+
+### Homebrew版のインストール
+
+Homebrewのリポジトリに最新バージョンがありますのでそれをインストールします．
+
+```
+# Homebrew版
+brew update
+brew install qgis
 ```
 
 Pluginメニューから`Processing SAGA NextGen Provider`をインストールします．
