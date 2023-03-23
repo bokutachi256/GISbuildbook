@@ -156,12 +156,14 @@ QGISリポジトリを追加します．
 
 ```
 # Ubuntu版
-sudo echo 'Types: deb deb-src' >> /etc/apt/sources.list.d/qgis.sources
-sudo echo 'URIs: https://qgis.org/debian' >> /etc/apt/sources.list.d/qgis.sources
-sudo echo 'Suites: jammy' >> /etc/apt/sources.list.d/qgis.sources
-sudo echo 'Architectures: amd64' >> /etc/apt/sources.list.d/qgis.sources
-sudo echo 'Components: main' >> /etc/apt/sources.list.d/qgis.sources
-sudo echo 'Signed-By: /etc/apt/keyrings/qgis-archive-keyring.gpg' >> /etc/apt/sources.list.d/qgis.sources
+sudo cat << 'EOS' | sudo tee /etc/apt/sources.list.d/qgis.sources
+Types: deb deb-src
+URIs: https://qgis.org/debian
+Suites: jammy
+Architectures: amd64
+Components: main
+Signed-By: /etc/apt/keyrings/qgis-archive-keyring.gpg
+EOS
 ```
 
 もしくはテキストエディタ`nano`などで`/etc/apt/sources.list.d/qgis.sources`を開き，

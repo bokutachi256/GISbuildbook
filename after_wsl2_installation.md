@@ -1,4 +1,4 @@
-# WSL2でインストールしたUbuntuの基本設定
+# WSL2にインストールしたUbuntuの初期設定
 
 ## WindowsのマイドキュメントフォルダをWSL2のホームディレクトにマウントする
 
@@ -13,11 +13,13 @@ WSL2のUbuntuからWindowsのマイドキュメントフォルダへは
 1.  WindowsホームディレクトリのシンボリックリンクをUbuntuに張る（ユーザ名の部分は自分のWindowsユーザー名に置き換えること）．
    
 ```
+cd ~
 ln -s /mnt/c/Users/ユーザ名/Documents/ Documents
 ln -s /mnt/c/Users/ユーザ名/Downloads/ Downloads
 ```
 
-これでUbuntuの`~/Documents`がWindowsのマイドキュメントフォルダが，`~/Download`がWindowsのダウンロードフォルダに紐付けられます．
+これでUbuntuの`~/Documents`にWindowsのマイドキュメントフォルダが，`~/Download`に
+Windowsのダウンロードフォルダに紐付けられます．
 
 ## インストール済みパッケージのアップデート
 
@@ -28,17 +30,21 @@ WSL2にインストールしたUbuntuのシステムをアップデートしま�
 sudo apt update && sudo apt upgrade -y
 ```
 
-## 日本語入力システムのインストール
+sudoコマンドを実行すると管理者パスワードの入力が必要になります．
+Ubuntuをインストール際に入力した管理者パスワードを入力してください．
+
+
+
+## 日本語表示と入力ができるようにする
 
 コンソールでの日本語表示はできますが，UbuntuのGUIソフトウエアでの日本語表示と日本語入力のための設定を行います．
-まずは必要最低限の日本語フォントをUbuntuにインストールします．
-
-フリーのtakaoフォントとRictyフォントをインストールします．
+まずは必要最低限の日本語フォント（notoフォント）をUbuntuにインストールします．
 
 ```
-sudo apt install fonts-takao
-sudo apt install fonts-ricty-diminished
+sudo apt install -y fonts-noto
 ```
+
+## 日本語入力システムのインストール
 
 日本語変換プログラムmozcをインストールします．
 GUIソフトウエアでの日本語入力に必要です．
@@ -47,15 +53,56 @@ GUIソフトウエアでの日本語入力に必要です．
 sudo apt install fcitx-mozc
 fcitx
 im-config -n fcitx
+```
+
+次に日本語変換システムを登録します．
+
+```
 fcitx-config-gtk3
 ```
 
-日本語入力システムの起動設定を行います．
+上記コマンドを実行すると以下のようなウインドウが表示されます．
+
+![picture 2](images/after_wsl2_installation/20230323_180249.png)  
+
+左下の`+`ボタンを押します．
+
+![picture 3](images/after_wsl2_installation/20230323_180446.png)  
+
+`Add input method`ウインドウが出てくるので，
+`Only Show Current Language`のチェックを外してその下のテキスト入力エリアに`mozc`と入力します．
+上部の入力メソッド一覧に`Mozc`が表示されるのでそれを選択しOKボタンを押します．
+
+![picture 4](images/after_wsl2_installation/20230323_180826.png)  
+
+`Imput Method`に`Mozc`が追加されたのを確認して右上の`X`ボタンを押して設定を終了します．
+
+次に日本語入力システムの起動設定を行います．
+以下をターミナルに貼り付けて実行します．
 
 ```
-echo 'export GTK_IM_MODULE=fcitx' >> ~/.bashrc
-echo 'export QT_IM_MODULE=fcitx' >> ~/.bashrc
-echo 'export XMODIFIERS="@im=fcitx"' >> ~/.bashrc
-echo 'export DefaultIMModule=fcitx' >> ~/.bashrc
-echo 'fcitx-autostart > /dev/null 2>&1' >> ~/.bashrc
+cat << 'EOS' | tee -a ~/.bashrc
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export DefaultIMModule=fcitx
+fcitx-autostart > /dev/null 2>&1
+EOS
 ```
+
+実行後にターミナルを再起動します．
+これでGUIソフトウエア上で日本語入力ができるようになります．
+
+
+## 日本語ロケールの設定
+
+ターミナルのメッセージなどが英語で表示されていますが，
+以下を実行すれば日本語で表示されるようになります．
+これは必須ではないので，お好みで設定してください．
+
+```
+sudo apt -y install language-pack-ja
+sudo update-locale LANG=ja_JP.UTF8
+```
+
+実行後はターミナルを再起動します．
