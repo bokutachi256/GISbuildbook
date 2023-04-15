@@ -21,6 +21,16 @@ ln -s /mnt/c/Users/ユーザ名/Downloads/ Downloads
 これでUbuntuの`~/Documents`にWindowsのマイドキュメントフォルダが，`~/Download`に
 Windowsのダウンロードフォルダに紐付けられます．
 
+## プロンプトに表示されるパスを短くする
+
+```
+cat << 'EOS' | tee -a ~/.bashrc
+export PROMPT_DIRTRIM=1
+alias ls='ls -GF'
+EOS
+```
+
+
 ## インストール済みパッケージのアップデート
 
 WSL2にインストールしたUbuntuのシステムをアップデートします．
