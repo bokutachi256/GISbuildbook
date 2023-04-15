@@ -78,11 +78,47 @@ R本体とRStudioをインストールします．
 
 公式HPのインストール手順は以下になります．
 
-[http://cran.rstudio.com/bin/linux/ubuntu/](http://cran.rstudio.com/bin/linux/ubuntu/)
+[https://cran.r-project.org/](https://cran.r-project.org/)
+
+まとめると以下になります．
+
+リポジトリのアップデートをします．
+```
+sudo apt update -qq
+```
+
+必要なパッケージをインストールします．
+```
+sudo apt install --no-install-recommends software-properties-common dirmngr
+```
+
+PGPキーをインストールします．
+```
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+```
+
+Rのリポジトリを設定します．
+コマンドを実行した後にエンターキーを押します．
+
+```
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+```
+
+リポジトリの更新をします．
+
+```
+sudo apt update
+```
+
+Rをインストールします．
+
+```
+sudo apt install r-base
+```
 
 公式HPの手順では最新版のRをインストールできますが，
 Ubuntuのリポジトリにあるものもそれほど古いものではありません．
-ここではUbuntuリポジトリからのインストールを紹介します．
+以下はUbuntuリポジトリからのインストールになります．
 
 ```
 # Ubuntu版
@@ -92,7 +128,7 @@ sudo apt install r-base
 
 #### Mac版のインストール
 
-公式HPの手順は[http://cran.rstudio.com/bin/macosx/](http://cran.rstudio.com/bin/macosx/)になりますが，
+公式HP (CRAN) の手順は[http://cran.rstudio.com/bin/macosx/](http://cran.rstudio.com/bin/macosx/)になりますが，
 Homebrewでインストールした方がアップデートなどの管理がしやすくなります．
 ここではHomebrewからのインストールを紹介します．
 
