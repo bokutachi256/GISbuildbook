@@ -94,7 +94,7 @@ exit
 
 ターミナルを終了したらスタートメニューからUbuntuを再度起動してください．
 
-`pyenv update`をインストールします．
+pyenv updateをインストールします．
 
 ```
 git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
@@ -126,113 +126,48 @@ source ~/.zshrc
 
 ## pyenvを使って研究用のpythonをインストールする
 
-- pyenv上でインストール可能なパッケージの一覧を取得する
+pyenv上でインストール可能なパッケージの一覧を取得します．
 
 ```
 pyenv install --list
 ```
 
-
-- pyenvでインストール可能なPythonが表示されるので，miniforgeの最新バージョン（miniforge3-22.9.0-2）をインストールする.
+pyenvでインストール可能なPythonが表示されるので，
+miniforgeの最新バージョン（miniforge3-22.9.0-2）をインストールします.
 
 ```
 pyenv install miniforge3-22.9.0-2
 ```
 
-pyenvで切り替え可能なpythonパッケージのリストを確認する
+インストールが終了したら，
+pyenvで切り替え可能なPythonパッケージのリストを確認します．
+
 ```
 pyenv versions
 ```
 
-星印がついているのが現在のデフォルトのPython．たぶんsystem（最初から入っているPython）に星印がついているので，先ほどインストールしたminiforge3-4.10.3-10をデフォルトのPythonに変更する．このときシステム標準のPythonは変えずに，~/Documents以下のみにminiforgeを適用すように設定する
+星印がついているのが現在のデフォルトのPython．おそらく`system`（最初から入っているPython）に星印がついているので，先ほどインストールしたminiforge3-22.9.0-2をデフォルトのPythonに変更します．
+このときシステム標準のPythonは変えず，~/Documents以下のフォルダでPythonを実行したときにminiforgeのPythonが動くように設定します．
 
 ```
 cd ~/Documents
 pyenv local miniforge3-22.9.0-2
 ```
 
-condaの環境変数をセットする．
+次に`conda init`を使ってcondaの環境変数をセットします．
+`conda init`は標準シェルを検出して設定を書き込みます．
+Ubuntuの標準シェルはbash，Macの標準シェルzshです．
+`conda init`はシェルの設定ファイルである.bashrcもしくは.zshrcに設定を書き込みます．
+
 ```
 conda init
 ```
 
-ターミナルを再起動する．
+設定を反映させるためにターミナルを終了して再起動します．
+
 ```
 exit
 ```
 
-- スタートメニューからUbuntuを起動する
-- condaパッケージのアップデート（週に一回くらいアップデートした方がよい）
-
-```
-conda update conda
-conda update --all
-```
-
-- jupyterlabのインストール
-```
-conda install jupyterlab
-```
-
-- jupyterlabの起動
-```
-jupyter lab
-```
-
-Windowsのブラウザに上記アドレスを張り付けるとUbuntuで動いているJupyter Labにアクセスできる．
-
-jupyterlabの終了はターミナルでCtrl+Cを2回押す．
-
-## conda仮想環境の作成
-
-マルチエージェントシミュレーションを実行するための仮想環境`mesa`を作成します．
-この環境にインストールするパッケージは以下になります．
-
-- mesa
-- jupyterlab
-- geopandas
-- gdal
-- matplotlib
-- ffmpeg
-
-まずは`mesa`という名前の仮想環境を作成します．
-
-```
-conda create -n mesa
-```
-
-作成した仮想環境をアクティベート（有効化）します．
-```
-conda activate mesa
-```
-
-パッケージ`mesa`をインストールする
-```
-conda install mesa
-```
-
-condaが`mesa`に必要なパッケージを検索して自動的にインストールします．
-あるパッケージをインストールするには他の必須パッケージがインストールされている必要があり，
-それらのパッケージの依存関係を自動的に解決して最適なパッケージをインストールします．
-
-次に`jupyterlab`をインストールします．
-
-```
-conda install jupyterlab
-```
-
-`jupyterlab`も比較的大規模なパッケージであるため，必須パッケージも多数あります．
-`jupyterlab`の必須パッケージとmesaの必須パッケージには共通のがありますが，
-condaはコンフリクトするパッケージのバージョン管理なども自動でやってくれます．
-
-以下のようにすればcondaで複数のパッケージを同時にインストールすることも可能ですが，
-インストールするパッケージが多くなると依存関係の解決に時間がかかります．
-
-複数パッケージをインストールしようとしても依存関係が解決できずにエラーが出る場合は，
-パッケージを一つずつインストールしてみてください．
-
-残りのライブラリもインストールしましょう．
-
-```
-conda install geopandas gdal matplotlib ffmpeg
-```
+ターミナルが終了したら，Ubuntuの場合はスタートメニューからUbuntuを再度起動し，
+Macの場合はユーティリティーからターミナルを起動してください．
