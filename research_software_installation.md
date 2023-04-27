@@ -1,6 +1,10 @@
 
 # 研究用アプリケーションのインストール
 
+---
+[toc]
+---
+
 ## Cコンパイラのインストール
 
 gccなどのC言語開発環境をインストールします．
@@ -126,7 +130,7 @@ sudo apt update
 sudo apt install r-base
 ```
 
-#### Mac版のインストール
+#### Homebrew版のインストール
 
 公式HP (CRAN) の手順は[http://cran.rstudio.com/bin/macosx/](http://cran.rstudio.com/bin/macosx/)になりますが，
 Homebrewでインストールした方がアップデートなどの管理がしやすくなります．
