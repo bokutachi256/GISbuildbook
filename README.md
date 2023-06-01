@@ -4,4 +4,4 @@
 2. [WSL2にインストールしたUbuntuの初期設定](https://github.com/bokutachi256/GISbuildbook/blob/main/after_wsl2_installation.md)
 3. [研究用ソフトウエアのインストール](https://github.com/bokutachi256/GISbuildbook/blob/main/research_software_installation.md)
 4. [Pythonのインストール](https://github.com/bokutachi256/GISbuildbook/blob/main/python_install.md)
-5. [ondaを用いたPython仮想環境の運用](https://github.com/bokutachi256/GISbuildbook/blob/main/conda_python.md)
+5. [condaを用いたPython仮想環境の運用](https://github.com/bokutachi256/GISbuildbook/blob/main/conda_python.md)
