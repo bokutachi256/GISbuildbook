@@ -37,12 +37,12 @@ Pythonでは仮想環境を使うことにより，
 
 pyenvは複数のPythonを切り替える事ができるシステムです．
 ここでは最初からインストールされているシステム用のPythonをそのまま残し，
-それとは別個に研究用のpythonをインストールします．
-このときに研究用のpythonをpyenv経由でインストールすると，
-研究用のpythonはpyenvの管理下に入ってシステム用のpythonと切り離されます．
-これにより，システム用のpythonに影響を与えずに研究用pythonを動かせます．
+それとは別個に研究用のPythonをインストールします．
+このときに研究用のPythonをpyenv経由でインストールすると，
+研究用のPythonはpyenvの管理下に入ってシステム用のPythonと切り離されます．
+これにより，システム用のPythonに影響を与えずに研究用Pythonを動かせます．
 
-miniforgeはパッケージ管理システムにcondaを使うpythonです．
+miniforgeはパッケージ管理システムにcondaを使うPythonです．
 Anacondaは用途によっては有償になってしまいますが，
 minicondaは無償で使用できます．
 また，Anacondaは巨大なシステムなのですが，
@@ -129,7 +129,7 @@ source ~/.zshrc
 
 以上でMacへのpyenvインストールが完了しました．
 
-## pyenvを使って研究用のpythonをインストールする
+## pyenvを使って研究用のPythonをインストールする
 
 pyenv上でインストール可能なパッケージの一覧を取得します．
 
@@ -159,6 +159,8 @@ cd ~/Documents
 pyenv local miniforge3-22.9.0-2
 ```
 
+`cd`コマンドを使ってホームディレクトリ（`~`）の`Documents`フォルダに移動し，ホームディレクトリ以下でPythonを実行したときにminiforgeでインストールしたPythonを実行するようにします．そのためには`pyenv local`を使います．
+
 次に`conda init`を使ってcondaの環境変数をセットします．
 `conda init`は標準シェルを検出して設定を書き込みます．
 Ubuntuの標準シェルはbash，Macの標準シェルzshです．
@@ -176,3 +178,4 @@ exit
 
 ターミナルが終了したら，Ubuntuの場合はスタートメニューからUbuntuを再度起動し，
 Macの場合はユーティリティーからターミナルを起動してください．
+これでpyenvでインストールしたminiforgeのPythonが実行できるようになります．
