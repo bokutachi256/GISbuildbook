@@ -1,6 +1,8 @@
 # WindowsへのWSL2とUbuntuのインストール方法
 
-## windowsで仮想マシンを動かすための準備をする
+[toc]
+
+## Windowsで仮想マシンを動かすための準備をする
 
 * スタートメニューからコントロールパネルを検索して実行する．
 ![picture 1](images/windows11_wsl2_install/20230319_085237.png)  
