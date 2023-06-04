@@ -34,7 +34,6 @@ alias ls='ls -GF'
 EOS
 ```
 
-
 ## インストール済みパッケージのアップデート
 
 WSL2にインストールしたUbuntuのシステムをアップデートします．
@@ -46,8 +45,6 @@ sudo apt update && sudo apt upgrade -y
 
 sudoコマンドを実行すると管理者パスワードの入力が必要になります．
 Ubuntuをインストール際に入力した管理者パスワードを入力してください．
-
-
 
 ## 日本語表示と入力ができるようにする
 
@@ -64,15 +61,39 @@ sudo apt install -y fonts-noto
 GUIソフトウエアでの日本語入力に必要です．
 
 ```
-sudo apt install fcitx-mozc
-fcitx
+sudo apt install -y fcitx-mozc
+```
+
+次にUbuntuを再起動します．
+まず`exit`コマンドでターミナルを終了します．
+
+```
+exit
+```
+
+ターミナルを終了したら，スタートメニューを右クリックしてターミナル（管理者）を起動します．
+
+![picture 7](images/windows11_wsl2_install/20230319_085530.png)  
+
+プロンプトに以下のコマンドを入力し，WSLをシャットダウンします．
+
+```
+wsl --shutdown
+```
+
+シャットダウンが終了したら，再度スタートメニューからUbuntuを起動します．
+
+Ubuntuが起動したら日本語変換システムの設定を行います．
+
+```
+fcitx > /dev/null 2>&1
 im-config -n fcitx
 ```
 
 次に日本語変換システムを登録します．
 
 ```
-fcitx-config-gtk3
+fcitx-config-gtk3 > /dev/null 2>&1
 ```
 
 上記コマンドを実行すると以下のようなウインドウが表示されます．
@@ -104,9 +125,11 @@ fcitx-autostart > /dev/null 2>&1
 EOS
 ```
 
-実行後にターミナルを再起動します．
+実行後に`exit`コマンドでターミナルを終了し，
+再びスタートメニューからUbuntuを起動します．
 これでGUIソフトウエア上で日本語入力ができるようになります．
 
+日本語入力と英語入力の切り替えは`Ctrl+スペース`です．
 
 ### 日本語ロケールの設定
 
