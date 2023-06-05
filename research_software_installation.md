@@ -18,7 +18,7 @@ Homebrewはすでにコマンドラインツールとxcodeがインストール�
 ```
 # Ubuntu版
 sudo apt update
-sudo apt install build-essential
+sudo apt install -y build-essential
 ```
 
 ```
@@ -36,7 +36,7 @@ Homebrewはgccにgfortranが含まれているので，上記のCコンパイラ
 ```
 # Ubuntu版
 sudo apt update
-sudo apt install gfortran
+sudo apt install -y gfortran
 ```
 
 ## GrADSとGMTのインストール
@@ -48,7 +48,7 @@ GrADSをインストールします．
 ```
 # Ubuntu版
 sudo apt update
-sudo apt install grads
+sudo apt install -y grads
 ```
 
 ```
@@ -62,7 +62,7 @@ GMTをインストールします．
 ```
 # Ubuntu版
 sudo apt update
-sudo apt install gmt
+sudo apt install -y gmt
 ```
 
 ```
@@ -78,10 +78,28 @@ R本体とRStudioをインストールします．
 
 ### Rのインストール
 
-#### Ubuntu版のインストール
+#### Ubuntu版Rのインストール
 
-公式HPのインストール手順は以下になります．
+Ubuntuのリポジトリに登録されているRは最新版のものではありませんが，
+それほど古いものではないので実用上は問題ないでしょう．
 
+一方，Rの公式HPに書かれている手順では最新版のRをインストールできます．
+最新版のRをインストールしたい場合は公式HPの手順でRをインストールしてください．
+
+まずはUbuntuリポジトリからのインストールについて説明します．
+最新版のRをインストールしたい場合はこのステップを飛ばして次に進んでください．
+
+リポジトリ情報をアップデートしてRをインストールします．
+
+```
+# Ubuntu版
+sudo apt update
+sudo apt install r-base
+```
+
+最新版のRをインストールしたい場合は以下のステップを実行します．
+これは公式HPのインストール手順の要約です．
+公式ページのインストール手順は以下になります．
 [https://cran.r-project.org/](https://cran.r-project.org/)
 
 まとめると以下になります．
@@ -120,21 +138,16 @@ Rをインストールします．
 sudo apt install r-base
 ```
 
-公式HPの手順では最新版のRをインストールできますが，
-Ubuntuのリポジトリにあるものもそれほど古いものではありません．
-以下はUbuntuリポジトリからのインストールになります．
+これでUbuntuへのRのインストールは終了です．
 
-```
-# Ubuntu版
-sudo apt update
-sudo apt install r-base
-```
-
-#### Homebrew版のインストール
+#### Homebrew版Rのインストール
 
 公式HP (CRAN) の手順は[http://cran.rstudio.com/bin/macosx/](http://cran.rstudio.com/bin/macosx/)になりますが，
-Homebrewでインストールした方がアップデートなどの管理がしやすくなります．
+Homebrewでも最新のRをインストールできます．
+Homebreでインストールした方がアップデートなどの管理がしやすくなるので，
 ここではHomebrewからのインストールを紹介します．
+
+リポジトリをアップデートしてRをインストールします．
 
 ```
 # Homebrew版
@@ -143,26 +156,28 @@ brew install --cask r
 ```
 
 パスワードの入力を求められたらログインパスワードを入力してください．
+これでMacへのRのインストールは終了です．
 
 ### RStudioのインストール
-#### Ubuntu版のインストール
+#### Ubuntu版RStudioのインストール
 
-RStudioは非常に便利なRのフロントエンドですが，
-Windows上でRとRStudioを動かすのは文字コードやライブラリのインストールなどで実行が難しくなることがあります．
-
-Ubuntu上でRとRStudioサーバーを動かしてWindowsのWebブラウザからアクセスすることにより，上記の問題を解決しやすくなります．
-
-UbuntuにRstudio Serverをインストールします．
-こちらは公式HPの手順（[https://posit.co/download/rstudio-server/](https://posit.co/download/rstudio-server/)）に基づいています．
+まずは必要なライブラリのダウンロードとインストールを行います．
 
 ```
 # Ubuntu版
-wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.03.0-386-amd64.deb
-sudo apt install ./rstudio-server-2023.03.0-386-amd64.deb
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+sudo apt install -y ./libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 ```
 
+次にRStudio本体のダウンロードとインストールを行います．
 
-#### Homebrew版のインストール
+```
+# Ubuntu版
+wget https://download1.rstudio.org/electron/bionic/amd64/rstudio-2023.03.1-446-amd64.deb
+sudo apt install -y ./rstudio-2023.03.1-446-amd64.deb
+```
+
+#### Homebrew版RStudioのインストール
 
 Homebrewのリポジトリからインストールできます．
 
@@ -172,9 +187,8 @@ brew update
 brew install rstudio
 ```
 
-
 ## QGISのインストール
-### Ubuntu版のインストール
+### Ubuntu版QGISのインストール
 
 公式HP（[https://qgis.org/ja/site/forusers/alldownloads.html#debian-ubuntu](https://qgis.org/ja/site/forusers/alldownloads.html#debian-ubuntu)）の要約です．
 
@@ -248,7 +262,7 @@ qgis &
 Pluginメニューから`Processing SAGA NextGen Provider`をインストールします．
 これでQGISのプロセッシングメニューでSAGAが使えるようになります．
 
-### Homebrew版のインストール
+### Homebrew版QGISのインストール
 
 Homebrewのリポジトリに最新バージョンがありますのでそれをインストールします．
 
