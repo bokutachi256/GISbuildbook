@@ -94,7 +94,7 @@ Ubuntuのリポジトリに登録されているRは最新版のものではあ�
 ```
 # Ubuntu版
 sudo apt update
-sudo apt install r-base
+sudo apt install -y r-base
 ```
 
 最新版のRをインストールしたい場合は以下のステップを実行します．
@@ -111,7 +111,7 @@ sudo apt update -qq
 
 必要なパッケージをインストールします．
 ```
-sudo apt install --no-install-recommends software-properties-common dirmngr
+sudo apt install -y --no-install-recommends software-properties-common dirmngr
 ```
 
 PGPキーをインストールします．
@@ -135,7 +135,7 @@ sudo apt update
 Rをインストールします．
 
 ```
-sudo apt install r-base
+sudo apt install -y r-base
 ```
 
 これでUbuntuへのRのインストールは終了です．
@@ -196,7 +196,7 @@ brew install rstudio
 
 ```
 # Ubuntu版
-sudo apt install gnupg software-properties-common
+sudo apt install -y gnupg software-properties-common
 ```
 
 署名キーをインストールします．
@@ -242,14 +242,14 @@ QGISをインストールします．
 
 ```
 # Ubuntu版
-sudo apt install qgis
+sudo apt install -y qgis
 ```
 
 SAGAもインストールします．
 
 ```
 # Ubuntu版
-sudo apt install saga
+sudo apt install -y saga
 ```
 
 確認のためQGISを起動します．
