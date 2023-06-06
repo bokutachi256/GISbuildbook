@@ -220,18 +220,6 @@ Signed-By: /etc/apt/keyrings/qgis-archive-keyring.gpg
 EOS
 ```
 
-もしくはテキストエディタ`nano`などで`/etc/apt/sources.list.d/qgis.sources`を開き，
-以下の内容を貼り付けて保存しても構いません．
-
-```
-Types: deb deb-src
-URIs: https://qgis.org/debian
-Suites: jammy
-Architectures: amd64
-Components: main
-Signed-By: /etc/apt/keyrings/qgis-archive-keyring.gpg
-```
-
 リポジトリ情報をアップデートします．
 ```
 # Ubuntu版
