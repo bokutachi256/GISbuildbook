@@ -76,9 +76,9 @@ brew install gmt
 R本体とRStudioをインストールします．
 
 
-### Rのインストール
+### R本体のインストール
 
-#### Ubuntu版Rのインストール
+#### Ubuntu版R本体のインストール
 
 Ubuntuのリポジトリに登録されているRは最新版のものではありませんが，
 それほど古いものではないので実用上は問題ないでしょう．
@@ -140,7 +140,7 @@ sudo apt install -y r-base
 
 これでUbuntuへのRのインストールは終了です．
 
-#### Homebrew版Rのインストール
+#### Homebrew版R本体のインストール
 
 公式HP (CRAN) の手順は[http://cran.rstudio.com/bin/macosx/](http://cran.rstudio.com/bin/macosx/)になりますが，
 Homebrewでも最新のRをインストールできます．
@@ -161,7 +161,7 @@ brew install --cask r
 ### RStudioのインストール
 #### Ubuntu版RStudioのインストール
 
-まずは必要なライブラリのダウンロードとインストールを行います．
+まずはRStudioをインストールするのに必要なライブラリのダウンロードとインストールを行います．
 
 ```
 # Ubuntu版
