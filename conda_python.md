@@ -29,7 +29,7 @@ condaコマンドを使ってPython仮想環境の構築・管理・削除やパ
 miniforgeには基本となる仮想環境が用意されています．
 現在の仮想環境のリストを見てみます．
 
-```
+```sh
 conda info -e
 ```
 
@@ -47,7 +47,7 @@ base環境にはcondaなどが含まれているので，1〜2週間に一度く
 
 base環境のアップデートは以下になります．
 
-```
+```sh
 conda update -n base --all
 ```
 
@@ -68,7 +68,7 @@ conda update -n base --all
 
 まずは`mesa`という名前の仮想環境を作成します．
 
-```
+```sh
 conda create -n mesa
 ```
 
