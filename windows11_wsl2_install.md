@@ -104,3 +104,7 @@ wsl --unregister Ubuntu-22.04
 これでUbuntuを初期化できました．
 念のためPCを再起動しスタートメニューからUbuntuを起動すれば，
 ユーザー名の設定に戻ります．
+
+
+---
+[次のトピックへ（WSL2にインストールしたUbuntuの初期設定）](https://github.com/bokutachi256/GISbuildbook/blob/main/after_wsl2_installation.md)
