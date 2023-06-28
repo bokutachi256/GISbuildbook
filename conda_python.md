@@ -1,3 +1,7 @@
+---
+[toc]
+---
+
 # condaを用いたPython仮想環境の運用
 
 前章でpyenvを使ってPython環境が構築できました．
@@ -73,14 +77,16 @@ conda create -n mesa
 ```
 
 作成した仮想環境をアクティベート（有効化）します．
-```
+
+```sh
 conda activate mesa
 ```
 
 プロンプトの先頭が`mesa`に変わり，mesa環境に切り替わりました．この状態でPythonプログラムを実行すると，mesa仮想環境中のPythonが実行されます．
 
 パッケージ`mesa`をインストールします．
-```
+
+```sh
 conda install mesa
 ```
 
@@ -90,7 +96,7 @@ condaが自動的に必要なパッケージをインストールしてくれま
 
 次に`jupyterlab`をインストールしてみましょう．
 
-```
+```sh
 conda install jupyterlab
 ```
 
@@ -106,19 +112,19 @@ condaはコンフリクトするパッケージのバージョン管理なども
 
 残りのライブラリもインストールしましょう．
 
-```
+```sh
 conda install geopandas gdal matplotlib ffmpeg
 ```
 
 jupyterlabを起動します．
 
-```
+```sh
 jupyter lab
 ```
 
 実行するとメッセージがたくさん出てきますが，その中に下記のようなURLがあります（token以下は実行するたびに変わります）．
 
-```
+```sh
 http://127.0.0.1:8888/lab?token=42220bdf357a0bef730bbf205a9710d34a3734ff557062cb
 ```
 
@@ -128,7 +134,8 @@ Pythonプログラムを実行できるようになります．
 Jupyter Labを終了するには，
 まずブラウザのJupyter LabのファイルメニューからShutdownを選びます．
 もしくはターミナルでCtrl+Cを2回押します．
-# condaを用いたPython仮想環境の運用
+
+# condaを用いたPython仮想環境の作成
 
 前章でpyenvを使ってPython環境が構築できました．
 次はcondaを使ってpythonの仮想環境を作成します．
