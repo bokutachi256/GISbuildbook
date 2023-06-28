@@ -4,7 +4,6 @@
 [toc]
 ---
 
-
 Pythonは人気があって比較的手軽にプログラミングができる言語ですが，
 必要なモジュールをどんどん追加していくとモジュール同士の衝突が起きて最悪の場合動かなくなってしまいます．
 
@@ -62,15 +61,14 @@ condaはPythonの仮想環境の作成・管理・削除，モジュールのイ
 pyenv公式ページの手順の要約です．
 まずgitを使ってpyenvをインストールします．
 
-```
+```sh
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 ```
 
 .bashrcにpyenvの設定を書き込みます．
 
-```
+```sh
 cat << 'EOS' | tee -a ~/.bashrc
-
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -78,12 +76,10 @@ eval "$(pyenv init -)"
 EOS
 ```
 
-
 .profileにもpyenvの設定を書き込みます．
 
-```
+```sh
 cat << 'EOS' | tee -a ~/.profile
-
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -93,7 +89,7 @@ EOS
 
 exitコマンドでターミナルを終了します．
 
-```
+```sh
 exit
 ```
 
@@ -101,7 +97,7 @@ exit
 
 pyenv updateをインストールします．
 
-```
+```sh
 git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
 ```
 
@@ -111,19 +107,19 @@ git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-
 
 Homebrewを使ってpyenvをインストールします．
 
-```
+```sh
 brew install pyenv
 ```
 
 .zshrcにpyenvの設定を書き込みます．
 
-```
+```sh
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
 ```
 
 書き込んだ設定を有効にします．
 
-```
+```sh
 source ~/.zshrc
 ```
 
@@ -133,28 +129,28 @@ source ~/.zshrc
 
 pyenv上でインストール可能なパッケージの一覧を取得します．
 
-```
+```sh
 pyenv install --list
 ```
 
 pyenvでインストール可能なPythonが表示されるので，
 miniforgeの最新バージョン（miniforge3-22.9.0-2）をインストールします.
 
-```
+```sh
 pyenv install miniforge3-22.9.0-2
 ```
 
 インストールが終了したら，
 pyenvで切り替え可能なPythonパッケージのリストを確認します．
 
-```
+```sh
 pyenv versions
 ```
 
 星印がついているのが現在のデフォルトのPython．おそらく`system`（最初から入っているPython）に星印がついているので，先ほどインストールしたminiforge3-22.9.0-2をデフォルトのPythonに変更します．
 このときシステム標準のPythonは変えず，~/Documents以下のフォルダでPythonを実行したときにminiforgeのPythonが動くように設定します．
 
-```
+```sh
 cd ~/Documents
 pyenv local miniforge3-22.9.0-2
 ```
@@ -166,13 +162,13 @@ pyenv local miniforge3-22.9.0-2
 Ubuntuの標準シェルはbash，Macの標準シェルzshです．
 `conda init`はシェルの設定ファイルである.bashrcもしくは.zshrcに設定を書き込みます．
 
-```
+```sh
 conda init
 ```
 
 設定を反映させるためにターミナルを終了して再起動します．
 
-```
+```sh
 exit
 ```
 

@@ -15,13 +15,13 @@ Homebrewはすでにコマンドラインツールとxcodeがインストール�
 すぐにCコンパイラ（gccやclangなど）が使えます．
 ただし，Macでgfortranを使う際にはHomebrewでgccをインストールする必要があります．
 
-```
+```sh
 # Ubuntu版
 sudo apt update
 sudo apt install -y build-essential
 ```
 
-```
+```sh
 # Homebrew版
 brew update
 brew install gcc
@@ -33,7 +33,7 @@ Fortran95コンパイラ（gfortran）をインストールします．
 Fortranプログラムのコンパイルをしない方はインストールする必要はありません．
 Homebrewはgccにgfortranが含まれているので，上記のCコンパイラのインストールを行えばgfortranもインストールされます．
 
-```
+```sh
 # Ubuntu版
 sudo apt update
 sudo apt install -y gfortran
@@ -45,13 +45,13 @@ GrADSやGMTが何かわからない人はインストールする必要はあり
 
 GrADSをインストールします．
 
-```
+```sh
 # Ubuntu版
 sudo apt update
 sudo apt install -y grads
 ```
 
-```
+```sh
 # Homebrew版
 brew update
 brew install grads
@@ -59,13 +59,13 @@ brew install grads
 
 GMTをインストールします．
 
-```
+```sh
 # Ubuntu版
 sudo apt update
 sudo apt install -y gmt
 ```
 
-```
+```sh
 # Homebrew版
 brew update
 brew install gmt
@@ -74,7 +74,6 @@ brew install gmt
 ## 統計解析ソフトウエアRのインストール
 
 R本体とRStudioをインストールします．
-
 
 ### R本体のインストール
 
@@ -91,7 +90,7 @@ Ubuntuのリポジトリに登録されているRは最新版のものではあ�
 
 リポジトリ情報をアップデートしてRをインストールします．
 
-```
+```sh
 # Ubuntu版
 sudo apt update
 sudo apt install -y r-base
@@ -105,36 +104,39 @@ sudo apt install -y r-base
 まとめると以下になります．
 
 リポジトリのアップデートをします．
-```
+
+```sh
 sudo apt update -qq
 ```
 
 必要なパッケージをインストールします．
-```
+
+```sh
 sudo apt install -y --no-install-recommends software-properties-common dirmngr
 ```
 
 PGPキーをインストールします．
-```
+
+```sh
 wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 ```
 
 Rのリポジトリを設定します．
 コマンドを実行した後にエンターキーを押します．
 
-```
+```sh
 sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 ```
 
 リポジトリの更新をします．
 
-```
+```sh
 sudo apt update
 ```
 
 Rをインストールします．
 
-```
+```sh
 sudo apt install -y r-base
 ```
 
@@ -149,7 +151,7 @@ Homebreでインストールした方がアップデートなどの管理がし�
 
 リポジトリをアップデートしてRをインストールします．
 
-```
+```sh
 # Homebrew版
 brew update
 brew install --cask r
@@ -163,7 +165,7 @@ brew install --cask r
 
 まずはRStudioをインストールするのに必要なライブラリのダウンロードとインストールを行います．
 
-```
+```sh
 # Ubuntu版
 wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 sudo apt install -y ./libssl1.1_1.1.1f-1ubuntu2_amd64.deb
@@ -171,7 +173,7 @@ sudo apt install -y ./libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 
 次にRStudio本体のダウンロードとインストールを行います．
 
-```
+```sh
 # Ubuntu版
 wget https://download1.rstudio.org/electron/bionic/amd64/rstudio-2023.03.1-446-amd64.deb
 sudo apt install -y ./rstudio-2023.03.1-446-amd64.deb
@@ -181,7 +183,7 @@ sudo apt install -y ./rstudio-2023.03.1-446-amd64.deb
 
 Homebrewのリポジトリからインストールできます．
 
-```
+```sh
 # Homebrew版
 brew update
 brew install rstudio
@@ -194,21 +196,21 @@ brew install rstudio
 
 まず必要なパッケージをインストールします．
 
-```
+```sh
 # Ubuntu版
 sudo apt install -y gnupg software-properties-common
 ```
 
 署名キーをインストールします．
 
-```
+```sh
 # Ubuntu版
 sudo wget -O /etc/apt/keyrings/qgis-archive-keyring.gpg https://download.qgis.org/downloads/qgis-archive-keyring.gpg
 ```
 
 QGISリポジトリを追加します．
 
-```
+```sh
 # Ubuntu版
 sudo cat << 'EOS' | sudo tee /etc/apt/sources.list.d/qgis.sources
 Types: deb deb-src
@@ -221,28 +223,29 @@ EOS
 ```
 
 リポジトリ情報をアップデートします．
-```
+
+```sh
 # Ubuntu版
 sudo apt update
 ```
 
 QGISをインストールします．
 
-```
+```sh
 # Ubuntu版
 sudo apt install -y qgis
 ```
 
 SAGAもインストールします．
 
-```
+```sh
 # Ubuntu版
 sudo apt install -y saga
 ```
 
 確認のためQGISを起動します．
 
-```
+```sh
 # Ubuntu版
 qgis &
 ```
@@ -254,7 +257,7 @@ Pluginメニューから`Processing SAGA NextGen Provider`をインストール�
 
 Homebrewのリポジトリに最新バージョンがありますのでそれをインストールします．
 
-```
+```sh
 # Homebrew版
 brew update
 brew install qgis

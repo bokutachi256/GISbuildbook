@@ -34,19 +34,23 @@
 
 * プロンプトに以下のコマンドを入力します．
 
-```wsl --set-default-version 2```
+```sh
+wsl --set-default-version 2
+```
 
 ![picture 9](images/windows11_wsl2_install/20230319_085601.png)  
 
 * 「この操作を正しく終了しました。」と表示されたら次に進みます．
 
 * プロンプトに以下のコマンドを入力します．
-```wsl --update```
+  
+```sh
+wsl --update
+```
 
 ![picture 11](images/windows11_wsl2_install/20230319_085631.png)  
 
 * 「Linux 用 Windows サブシステム はインストールされました。」と表示されたらターミナルを閉じます．
-
 
 ## WSL2用Ubuntuのインストール
 
@@ -54,7 +58,6 @@
 * Ubuntu 22.04.1 LTSを開く（Ubuntuはいくつかありますが，バージョンナンバーがついているものを選んでください）．
 
 ![picture 13](images/windows11_wsl2_install/20230319_085658.png)  
-
 
 * インストールボタンを押してUbuntu 22.04.1 LTSをインストールします．
 
@@ -91,20 +94,19 @@ Ubuntuの初期化は以下になります．
 * スタートメニューを右クリックし，ターミナルを開く．
 * 以下のコマンドでwsl2を終了する．
 
-```
+```sh
 wsl --shutdown
 ```
 
 * WSLにインストールされているUbuntuを解除する．
 
-```
+```sh
 wsl --unregister Ubuntu-22.04
 ```
 
 これでUbuntuを初期化できました．
 念のためPCを再起動しスタートメニューからUbuntuを起動すれば，
 ユーザー名の設定に戻ります．
-
 
 ---
 [次のトピックへ（WSL2にインストールしたUbuntuの初期設定）](https://github.com/bokutachi256/GISbuildbook/blob/main/after_wsl2_installation.md)

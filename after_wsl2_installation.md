@@ -15,7 +15,7 @@ WSL2のUbuntuからWindowsのマイドキュメントフォルダへは
 
 1. スタートメニューからUbuntuを起動する．
 1. WindowsホームディレクトリのシンボリックリンクをUbuntuに張る（ユーザ名の部分は自分のWindowsユーザー名に置き換えること）．
-   
+
 ```sh
 cd ~
 ln -s /mnt/c/Users/ユーザ名/Documents/ Documents
@@ -27,7 +27,7 @@ Windowsのダウンロードフォルダに紐付けられます．
 
 ## プロンプトに表示されるパスを短くする
 
-``` sh
+```sh
 cat << 'EOS' | tee -a ~/.bashrc
 export PROMPT_DIRTRIM=1
 alias ls='ls -GF'
