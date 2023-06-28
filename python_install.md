@@ -179,3 +179,7 @@ exit
 ターミナルが終了したら，Ubuntuの場合はスタートメニューからUbuntuを再度起動し，
 Macの場合はユーティリティーからターミナルを起動してください．
 これでpyenvでインストールしたminiforgeのPythonが実行できるようになります．
+
+---
+[前のトピックへ（研究用ソフトウエアのインストール）](https://github.com/bokutachi256/GISbuildbook/blob/main/research_software_installation.md)
+[次のトピックへ（condaを用いたPython仮想環境の運用）](https://github.com/bokutachi256/GISbuildbook/blob/main/conda_python.md)

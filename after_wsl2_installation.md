@@ -162,3 +162,7 @@ sudo update-locale LANG=ja_JP.UTF8
 ```
 
 実行後はターミナルを再起動します．
+
+---
+[前のトピックへ（Windows11にWSL2をインストールする）](https://github.com/bokutachi256/GISbuildbook/blob/main/windows11_wsl2_install.md)
+[次のトピックへ（研究用ソフトウエアのインストール）](https://github.com/bokutachi256/GISbuildbook/blob/main/research_software_installation.md)

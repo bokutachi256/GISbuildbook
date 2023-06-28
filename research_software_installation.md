@@ -262,3 +262,7 @@ brew install qgis
 
 Pluginメニューから`Processing SAGA NextGen Provider`をインストールします．
 これでQGISのプロセッシングメニューでSAGAが使えるようになります．
+
+---
+[前のトピックへ（WSL2にインストールしたUbuntuの初期設定）](https://github.com/bokutachi256/GISbuildbook/blob/main/after_wsl2_installation.md)
+[次のトピックへ（Pythonのインストール）](https://github.com/bokutachi256/GISbuildbook/blob/main/python_install.md)
